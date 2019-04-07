@@ -16,7 +16,9 @@ namespace Lab1
         public string zip { get; }
         public string phone { get; }
         public string email { get; }
+        /*
         public string fullName { get; } // Variable stores first and last name for comboBox display.
+        */
         public Customer(string first, string last, string address, string city, string state, string zip, string phone, string email)
         {
             this.first = first;
@@ -27,7 +29,7 @@ namespace Lab1
             this.zip = zip;
             this.phone = phone;
             this.email = email;
-            fullName = $"{first} {last}";
+            // fullName = $"{first} {last}";
         }
 
     }

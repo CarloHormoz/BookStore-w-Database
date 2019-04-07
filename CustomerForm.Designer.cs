@@ -60,27 +60,28 @@
             this.CustomerSelectBox.TabIndex = 0;
             this.CustomerSelectBox.Text = "Edit an Existing Customer";
             this.CustomerSelectBox.SelectedIndexChanged += new System.EventHandler(this.CustomerSelectBox_SelectedIndexChanged);
+            this.CustomerSelectBox.Click += new System.EventHandler(this.CustomerSelectBox_Click);
             // 
             // FirstNameBox
             // 
             this.FirstNameBox.Location = new System.Drawing.Point(98, 106);
             this.FirstNameBox.Name = "FirstNameBox";
             this.FirstNameBox.Size = new System.Drawing.Size(241, 22);
-            this.FirstNameBox.TabIndex = 1;
+            this.FirstNameBox.TabIndex = 0;
             // 
             // LastNameBox
             // 
             this.LastNameBox.Location = new System.Drawing.Point(433, 106);
             this.LastNameBox.Name = "LastNameBox";
             this.LastNameBox.Size = new System.Drawing.Size(343, 22);
-            this.LastNameBox.TabIndex = 2;
+            this.LastNameBox.TabIndex = 1;
             // 
             // AddressBox
             // 
             this.AddressBox.Location = new System.Drawing.Point(98, 149);
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.Size = new System.Drawing.Size(678, 22);
-            this.AddressBox.TabIndex = 3;
+            this.AddressBox.TabIndex = 2;
             // 
             // FirstNameLabel
             // 
@@ -159,35 +160,35 @@
             this.ZipBox.Location = new System.Drawing.Point(630, 193);
             this.ZipBox.Name = "ZipBox";
             this.ZipBox.Size = new System.Drawing.Size(146, 22);
-            this.ZipBox.TabIndex = 12;
+            this.ZipBox.TabIndex = 5;
             // 
             // StateBox
             // 
             this.StateBox.Location = new System.Drawing.Point(488, 193);
             this.StateBox.Name = "StateBox";
             this.StateBox.Size = new System.Drawing.Size(88, 22);
-            this.StateBox.TabIndex = 13;
+            this.StateBox.TabIndex = 4;
             // 
             // CityBox
             // 
             this.CityBox.Location = new System.Drawing.Point(98, 193);
             this.CityBox.Name = "CityBox";
             this.CityBox.Size = new System.Drawing.Size(296, 22);
-            this.CityBox.TabIndex = 14;
+            this.CityBox.TabIndex = 3;
             // 
             // PhoneBox
             // 
             this.PhoneBox.Location = new System.Drawing.Point(98, 230);
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.Size = new System.Drawing.Size(296, 22);
-            this.PhoneBox.TabIndex = 15;
+            this.PhoneBox.TabIndex = 6;
             // 
             // EmailBox
             // 
             this.EmailBox.Location = new System.Drawing.Point(98, 268);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(478, 22);
-            this.EmailBox.TabIndex = 16;
+            this.EmailBox.TabIndex = 7;
             // 
             // NewCustomerButton
             // 
@@ -209,6 +210,7 @@
             this.BackButton.TabIndex = 18;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // CancelButton
             // 
@@ -216,7 +218,7 @@
             this.CancelButton.Location = new System.Drawing.Point(820, 181);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(130, 23);
-            this.CancelButton.TabIndex = 19;
+            this.CancelButton.TabIndex = 9;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -228,7 +230,7 @@
             this.SaveButton.Location = new System.Drawing.Point(820, 143);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(130, 23);
-            this.SaveButton.TabIndex = 20;
+            this.SaveButton.TabIndex = 8;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);

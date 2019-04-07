@@ -252,5 +252,17 @@ namespace Lab1
             BookSelectionBox.DisplayMember = "Title";
             BookSelectionBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
+        /// <summary>
+        /// Back to main menu on button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            MainMenu form = new MainMenu();
+            this.Close();
+            form.Show();
+        }
     }
 }
