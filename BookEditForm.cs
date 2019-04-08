@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace Lab1
 {
@@ -17,6 +18,11 @@ namespace Lab1
         {
             InitializeComponent();
         }
+
+        string author = @"^([A-Za-z ,.'-]+)$";
+        string title = @"^([A-Z a-z 0-9 ,#.'-]+).*$";
+        string isbn = @"^([0-9]+)$";
+        string price = @"\$\d+\.\d{2}";
 
         /// <summary>
         /// Clears fields and sets necessary fields to prepare for
@@ -37,15 +43,18 @@ namespace Lab1
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            // Check for empty boxes.
+            if (AuthorTextBox.Text == "" || TitleTextBox.Text == "" || ISBNTextBox.Text == "" || PriceTextBox.Text == ""
+                || !Regex.IsMatch(AuthorTextBox.Text, author) || !Regex.IsMatch(TitleTextBox.Text, title) || !Regex.IsMatch(ISBNTextBox.Text, isbn)
+                || !Regex.IsMatch(PriceTextBox.Text, price))
+            {
+                MessageBox.Show("Invalid Entry:\nAuthor must be First Last\nISBN must be digits only\nPrice must be $xxx.xx format");
+                return;
+            }
+
             // Display messagebox -> If user clicks no, cancel database update.
             if (MessageBox.Show("Confirm Update?", "", MessageBoxButtons.YesNo) == DialogResult.No)
             {
-                return;
-            }
-            // Check for empty boxes.
-            if (AuthorTextBox.Text == "" || TitleTextBox.Text == "" || ISBNTextBox.Text == "" || PriceTextBox.Text == "")
-            {
-                MessageBox.Show("Fields cannot be empty.");
                 return;
             }
 

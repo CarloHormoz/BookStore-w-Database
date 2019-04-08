@@ -55,6 +55,7 @@ namespace Lab1
             this.BookSelectionBox = new System.Windows.Forms.ComboBox();
             this.AddTitleButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.CustomerSelectBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.OrderSummaryData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@ namespace Lab1
             this.CancelOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CancelOrderButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CancelOrderButton.Location = new System.Drawing.Point(585, 527);
-            this.CancelOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.CancelOrderButton.Name = "CancelOrderButton";
             this.CancelOrderButton.Size = new System.Drawing.Size(191, 28);
             this.CancelOrderButton.TabIndex = 1;
@@ -79,7 +80,7 @@ namespace Lab1
             this.ConfirmOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ConfirmOrderButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ConfirmOrderButton.Location = new System.Drawing.Point(364, 527);
-            this.ConfirmOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ConfirmOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.ConfirmOrderButton.Name = "ConfirmOrderButton";
             this.ConfirmOrderButton.Size = new System.Drawing.Size(196, 28);
             this.ConfirmOrderButton.TabIndex = 2;
@@ -89,8 +90,8 @@ namespace Lab1
             // 
             // AuthorTextBox
             // 
-            this.AuthorTextBox.Location = new System.Drawing.Point(213, 81);
-            this.AuthorTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AuthorTextBox.Location = new System.Drawing.Point(214, 102);
+            this.AuthorTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.AuthorTextBox.MaxLength = 0;
             this.AuthorTextBox.Name = "AuthorTextBox";
             this.AuthorTextBox.ReadOnly = true;
@@ -100,7 +101,7 @@ namespace Lab1
             // TaxTextBox
             // 
             this.TaxTextBox.Location = new System.Drawing.Point(488, 482);
-            this.TaxTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TaxTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.TaxTextBox.Name = "TaxTextBox";
             this.TaxTextBox.ReadOnly = true;
             this.TaxTextBox.Size = new System.Drawing.Size(165, 22);
@@ -110,7 +111,7 @@ namespace Lab1
             // TotalTextBox
             // 
             this.TotalTextBox.Location = new System.Drawing.Point(721, 482);
-            this.TotalTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TotalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.TotalTextBox.Name = "TotalTextBox";
             this.TotalTextBox.ReadOnly = true;
             this.TotalTextBox.Size = new System.Drawing.Size(169, 22);
@@ -120,7 +121,7 @@ namespace Lab1
             // SubtotalTextBox
             // 
             this.SubtotalTextBox.Location = new System.Drawing.Point(260, 482);
-            this.SubtotalTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SubtotalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.SubtotalTextBox.Name = "SubtotalTextBox";
             this.SubtotalTextBox.ReadOnly = true;
             this.SubtotalTextBox.Size = new System.Drawing.Size(173, 22);
@@ -130,7 +131,7 @@ namespace Lab1
             // QuantityTextBox
             // 
             this.QuantityTextBox.Location = new System.Drawing.Point(507, 194);
-            this.QuantityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QuantityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.QuantityTextBox.MaxLength = 3;
             this.QuantityTextBox.Name = "QuantityTextBox";
             this.QuantityTextBox.Size = new System.Drawing.Size(120, 22);
@@ -139,7 +140,7 @@ namespace Lab1
             // PriceTextBox
             // 
             this.PriceTextBox.Location = new System.Drawing.Point(469, 132);
-            this.PriceTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PriceTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PriceTextBox.MaxLength = 0;
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.ReadOnly = true;
@@ -148,8 +149,8 @@ namespace Lab1
             // 
             // ISBNTextBox
             // 
-            this.ISBNTextBox.Location = new System.Drawing.Point(684, 81);
-            this.ISBNTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ISBNTextBox.Location = new System.Drawing.Point(671, 100);
+            this.ISBNTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ISBNTextBox.MaxLength = 0;
             this.ISBNTextBox.Name = "ISBNTextBox";
             this.ISBNTextBox.ReadOnly = true;
@@ -159,7 +160,7 @@ namespace Lab1
             // AuthorLabel
             // 
             this.AuthorLabel.AutoSize = true;
-            this.AuthorLabel.Location = new System.Drawing.Point(152, 84);
+            this.AuthorLabel.Location = new System.Drawing.Point(152, 105);
             this.AuthorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AuthorLabel.Name = "AuthorLabel";
             this.AuthorLabel.Size = new System.Drawing.Size(54, 17);
@@ -169,7 +170,7 @@ namespace Lab1
             // ISBNLabel
             // 
             this.ISBNLabel.AutoSize = true;
-            this.ISBNLabel.Location = new System.Drawing.Point(635, 84);
+            this.ISBNLabel.Location = new System.Drawing.Point(620, 103);
             this.ISBNLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ISBNLabel.Name = "ISBNLabel";
             this.ISBNLabel.Size = new System.Drawing.Size(43, 17);
@@ -248,7 +249,7 @@ namespace Lab1
             this.QuantityColumn,
             this.LineTotalColumn});
             this.OrderSummaryData.Location = new System.Drawing.Point(213, 310);
-            this.OrderSummaryData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OrderSummaryData.Margin = new System.Windows.Forms.Padding(4);
             this.OrderSummaryData.Name = "OrderSummaryData";
             this.OrderSummaryData.ReadOnly = true;
             this.OrderSummaryData.Size = new System.Drawing.Size(723, 165);
@@ -283,13 +284,16 @@ namespace Lab1
             // 
             // BookSelectionBox
             // 
+            this.BookSelectionBox.DisplayMember = "title";
             this.BookSelectionBox.FormattingEnabled = true;
-            this.BookSelectionBox.Location = new System.Drawing.Point(155, 31);
-            this.BookSelectionBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BookSelectionBox.Location = new System.Drawing.Point(155, 56);
+            this.BookSelectionBox.Margin = new System.Windows.Forms.Padding(4);
             this.BookSelectionBox.Name = "BookSelectionBox";
             this.BookSelectionBox.Size = new System.Drawing.Size(780, 24);
             this.BookSelectionBox.Sorted = true;
             this.BookSelectionBox.TabIndex = 19;
+            this.BookSelectionBox.Text = "Select a Title";
+            this.BookSelectionBox.ValueMember = "title";
             this.BookSelectionBox.SelectedIndexChanged += new System.EventHandler(this.BookSelectionBox_SelectedIndexChanged);
             this.BookSelectionBox.Click += new System.EventHandler(this.BookSelectionBox_Click);
             // 
@@ -299,7 +303,7 @@ namespace Lab1
             this.AddTitleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddTitleButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddTitleButton.Location = new System.Drawing.Point(469, 239);
-            this.AddTitleButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTitleButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddTitleButton.Name = "AddTitleButton";
             this.AddTitleButton.Size = new System.Drawing.Size(208, 28);
             this.AddTitleButton.TabIndex = 0;
@@ -318,12 +322,24 @@ namespace Lab1
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // CustomerSelectBox
+            // 
+            this.CustomerSelectBox.FormattingEnabled = true;
+            this.CustomerSelectBox.Location = new System.Drawing.Point(155, 13);
+            this.CustomerSelectBox.Margin = new System.Windows.Forms.Padding(4);
+            this.CustomerSelectBox.Name = "CustomerSelectBox";
+            this.CustomerSelectBox.Size = new System.Drawing.Size(780, 24);
+            this.CustomerSelectBox.TabIndex = 21;
+            this.CustomerSelectBox.Text = "Select a Customer";
+            this.CustomerSelectBox.Click += new System.EventHandler(this.CustomerSelectBox_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1223, 586);
+            this.Controls.Add(this.CustomerSelectBox);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.BookSelectionBox);
             this.Controls.Add(this.OrderSummaryData);
@@ -345,7 +361,7 @@ namespace Lab1
             this.Controls.Add(this.ConfirmOrderButton);
             this.Controls.Add(this.CancelOrderButton);
             this.Controls.Add(this.AddTitleButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.OrderSummaryData)).EndInit();
@@ -380,6 +396,7 @@ namespace Lab1
         private System.Windows.Forms.DataGridViewTextBoxColumn LineTotalColumn;
         private System.Windows.Forms.Button AddTitleButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.ComboBox CustomerSelectBox;
     }
 }
 
