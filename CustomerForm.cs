@@ -59,7 +59,6 @@ namespace Lab1
         /// <param name="e"></param>
         private void CustomerSelectBox_Click(object sender, EventArgs e)
         {
-            if (CustomerSelectBox.Items.Count != 0) return;
 
             // Change style to dropdownlist to avoid entries into combobox.
             CustomerSelectBox.DropDownStyle = ComboBoxStyle.DropDownList;

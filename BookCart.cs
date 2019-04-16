@@ -15,6 +15,7 @@ using MySql.Data.MySqlClient;
 /// The user can pick and choose any combination of these three books to place an order. The program updates as necessary, calculating
 /// totals, including tax, and the user can choose to confirm or cancel the order.
 /// </summary>
+
 namespace Lab1
 {
     
@@ -205,6 +206,8 @@ namespace Lab1
 
             // Else confirm order and write to "order.txt". Push to mySQL table orders and order_details after writing to text.
             MessageBox.Show("Order Confirmed!");
+            firstTitleAdded = false;
+            currentRowIndex = 0;
             try
             {
                 using (FileStream outFile = new FileStream("orders.txt", FileMode.Append, FileAccess.Write))
@@ -257,24 +260,76 @@ namespace Lab1
             DBConnect.Close();
 
             // Get total quantity of books on order.
-            int qtyOfBooks = 0;
-            foreach (DataGridViewRow row in OrderSummaryData.Rows)
-            {
-                qtyOfBooks += Convert.ToInt32(row.Cells[2].Value);
-            }
-            System.Diagnostics.Debug.WriteLine(qtyOfBooks + " " + TotalTextBox.Text.Substring(1));
+            int qtyOfBooks;
+
             /*** Push to mySQL order_details. ***/
             DBConnect.Open();
+            foreach (DataGridViewRow row in OrderSummaryData.Rows)
+            {
+                qtyOfBooks = 0;
+                qtyOfBooks += Convert.ToInt32(row.Cells[2].Value);
+                // max(order_id) will get the most recent (current) order.
+                cmd.CommandText = $"Insert into order_details values(" +
+                                  $"(Select MAX(order_id) from orders)," +
+                                  $"(Select book_id from books where title='{Convert.ToString(row.Cells[0].Value)}')," +
+                                  $"{qtyOfBooks}, " +
+                                  $"{Convert.ToDecimal(Convert.ToString(row.Cells[3].Value).Substring(1))})";
+                cmd.Connection = DBConnect;
+                cmd.ExecuteNonQuery();
+            }
 
-            // max(order_id) will get the most recent (current) order.
-            cmd.CommandText = $"Insert into order_details values(" +
-                $"(Select MAX(order_id) from orders)," +
-                $"(Select book_id from books where title='{BookSelectionBox.Text}')," +
-                $"{qtyOfBooks}," +
-                $"cast('{TotalTextBox.Text.Substring(1)}' as decimal(12,2)))";
 
-            cmd.Connection = DBConnect;
-            cmd.ExecuteNonQuery();
+            // Extra Credit: Create a reader to iterate through customer first and
+            // and save fields to display.
+            cmd.CommandText = "Select * from customer INNER JOIN orders " +
+                              "USING (cust_id) where order_id = (" +
+                              "select MAX(order_id) from orders)";
+
+            string first = "";
+            string last = "";
+            string email = "";
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                first = reader.GetString(1);
+                last = reader.GetString(2);
+                email = reader.GetString(8);
+            }
+            reader.Close();
+            // Get each book's information to display.
+            cmd.CommandText = "Select * from books inner join " +
+                              "order_details using (book_id) where " +
+                              "order_id = (select max(order_id) from " +
+                              "order_details)";
+            
+            reader = cmd.ExecuteReader();
+
+            List<Book> bookList = new List<Book>();
+            List<int> qty = new List<int>();
+            while (reader.Read())
+            {
+                Book tempBook = new Book(reader.GetString(2), reader.GetString(3),
+                                         reader.GetString(4), reader.GetString(1));
+                bookList.Add(tempBook);
+                qty.Add(reader.GetInt32(6));
+            }
+            reader.Close();
+
+            StringBuilder str = new StringBuilder();
+            int index = 0;
+            foreach (Book book in bookList)
+            {
+                str.Append(book.Title);
+                str.Append(" | " + book.Author);
+                str.Append(" | " + book.ISBN);
+                str.Append(" | " + book.Price + " ea");
+                str.Append(" | " + qty[index] + " Unit(s) Ordered\n\n");
+                index++;
+            }
+            MessageBox.Show($"Customer Info: \nName: {first} {last}\n" +
+                            $"Email: {email}\n\nItems Ordered: \n" +
+                            $"{str}Total Order Cost: {TotalTextBox.Text}", "Order Information");
             DBConnect.Close();
 
 
@@ -302,6 +357,7 @@ namespace Lab1
             {
                 OrderSummaryData.Rows.Clear();
                 firstTitleAdded = false;
+                currentRowIndex = 0;
                 OrderSummaryData.Rows[0].Cells[0].Value = "No Selection Made";
                 CancelOrderButton.Enabled = false;
                 SubtotalTextBox.Text = "$0.00";

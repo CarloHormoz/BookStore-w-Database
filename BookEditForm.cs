@@ -127,7 +127,6 @@ namespace Lab1
         /// <param name="e"></param>
         private void BookSelectComboBox_Click(object sender, EventArgs e)
         {
-            if (BookSelectBox.Items.Count != 0) return;
 
             // Change style to dropdownlist to avoid entries into combobox.
             BookSelectBox.DropDownStyle = ComboBoxStyle.DropDownList;
